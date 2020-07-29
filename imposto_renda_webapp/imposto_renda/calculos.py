@@ -1,4 +1,4 @@
-from tabela_ir import get_aliquota_e_parcela_a_deduzir
+from .tabela_ir import get_aliquota_e_parcela_a_deduzir
 
 def deducao_simplificada(salario_anual):
     return (salario_anual * 0.2)
@@ -10,7 +10,7 @@ def base_calculo(salario_anual, aliquota, parcela_dedutivel):
     return imposto_inicial - parcela_dedutivel
 
 
-def calcular_imposto_de_renda(salario_anual):
+def calcular_imposto_de_renda(salario_anual)->str:
     salario_deducao_simplificada = salario_anual - deducao_simplificada(salario_anual)
     aliquota,parcela_dedutivel = get_aliquota_e_parcela_a_deduzir(salario_deducao_simplificada)
 
