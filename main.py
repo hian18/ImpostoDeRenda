@@ -1,22 +1,10 @@
-import tabela_ir
-
-def base_calculo(salario_anual, aliquota, parcela_dedutivel):
-    base = salario_anual - deducao_simplificada(salario_anual)
-    imposto_inicial = base * aliquota
-
-    return imposto_inicial - parcela_dedutivel
-
-def deducao_simplificada(salario_anual):
-    return (salario_anual * 0.2)
+from tabela_ir import get_aliquota_e_parcela_a_deduzir
+from calculos import base_calculo
 
 #main
-def executar():
+def executar(salario_anual):
 
-    salario_anual = float(input("Digite o salário anual: "))
-
-    aliquota = tabela_ir.get_aliquoto_e_parcela_a_deduzir(salario_anual)[0]
-
-    parcela_dedutivel = tabela_ir.get_aliquoto_e_parcela_a_deduzir(salario_anual)[1]
+    aliquota,parcela_dedutivel = get_aliquota_e_parcela_a_deduzir(salario_anual)
 
     imposto = base_calculo(salario_anual, aliquota, parcela_dedutivel)
 
@@ -26,7 +14,8 @@ def executar():
         print("Isento!")
 
 if(__name__ == "__main__"):
-    executar()
+    salario_anual = float(input("Digite o salário anual: "))
+    executar(salario_anual)
 
 """"
     if(aux > 4664.68):

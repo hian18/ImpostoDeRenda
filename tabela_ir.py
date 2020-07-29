@@ -1,3 +1,4 @@
+from calculos import deducao_simplificada
 SALARIO_MAXIMO = 9999999
 
 #salario anual min, salario anual max, aliquota, parcela dedutivel
@@ -10,13 +11,11 @@ TABELA_IR_ANUAL_2020 = (
 )
 
 #retorna a aliquota e a parcela a deduzir
-def get_aliquoto_e_parcela_a_deduzir(salario: float)->tuple:
+def get_aliquota_e_parcela_a_deduzir(salario: float)->tuple:
     salario = salario - deducao_simplificada(salario)
 
     for linha in TABELA_IR_ANUAL_2020:
         if linha[0] <= salario <= linha[1]:
             return linha[-2], linha[-1]
 
-def deducao_simplificada(salario_anual):
-    return (salario_anual * 0.2)
 
