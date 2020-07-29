@@ -1,21 +1,15 @@
 from tabela_ir import get_aliquota_e_parcela_a_deduzir
-from calculos import base_calculo
+from calculos import calcular_imposto_de_renda
 
 #main
-def executar(salario_anual):
+def executar():
 
-    aliquota,parcela_dedutivel = get_aliquota_e_parcela_a_deduzir(salario_anual)
-
-    imposto = base_calculo(salario_anual, aliquota, parcela_dedutivel)
-
-    if(imposto > 0):
-        print(f"O valor do imposto a ser pago é R${imposto:.2f}")
-    else:
-        print("Isento!")
+    salario_anual = float(input("Digite o salário anual: "))
+    resultado=calcular_imposto_de_renda(salario_anual)
+    print(resultado)
 
 if(__name__ == "__main__"):
-    salario_anual = float(input("Digite o salário anual: "))
-    executar(salario_anual)
+    executar()
 
 """"
     if(aux > 4664.68):
