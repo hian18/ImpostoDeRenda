@@ -1,4 +1,3 @@
-from tabela_ir import get_aliquota_e_parcela_a_deduzir
 from calculos import calcular_imposto_de_renda
 
 #main
