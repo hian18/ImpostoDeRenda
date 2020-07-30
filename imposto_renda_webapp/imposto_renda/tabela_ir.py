@@ -1,4 +1,4 @@
-SALARIO_MAXIMO = 9999999
+SALARIO_MAXIMO = float('inf')
 
 #salario anual min, salario anual max, aliquota, parcela dedutivel
 TABELA_IR_ANUAL_2020 = (

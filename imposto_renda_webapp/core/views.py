@@ -14,6 +14,11 @@ class ImpostoRendaView(View):
     form = RendaUsuarioForm
 
     def post(self, request, *args, **kwargs):
-        form=self.form(request.POST)
+        form = self.form(request.POST)
         result = calcular_imposto_de_renda(float(form.data['salario_anual']))
         return HttpResponse(result)
+
+    def get(self, request):
+        form = RendaUsuarioForm()
+        context = {'form': form}
+        return render(request, 'calculo_impost_renda.html', context=context)
